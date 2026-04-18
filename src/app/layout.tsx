@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
-import "./globals.css";
+import "@/style/globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
+import Headers from "@/components/Headers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -40,8 +42,20 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        {children}
-        <Toaster position="top-right" />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="flex min-h-screen w-full flex-col">
+            <Headers />
+            <main className="flex flex-1 flex-col px-4 pt-10 xl:px-8">
+              {children}
+            </main>
+          </div>
+          <Toaster position="top-right" />
+        </ThemeProvider>
       </body>
     </html>
   );
