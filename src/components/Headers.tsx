@@ -6,7 +6,7 @@ import { ModeToggle } from "./ModeToggleButton";
 import LogOutButton from "./LogOutButton";
 
 const Headers = () => {
-  const user = null;
+  const user = 1;
   return (
     <header
       className="bg-popover relative flex h-24 w-full justify-between items-center px-3 sm:px-8"
