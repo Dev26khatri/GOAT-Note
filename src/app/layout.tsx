@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 import Headers from "@/components/Headers";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -48,12 +49,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen w-full flex-col">
-            <Headers />
-            <main className="flex flex-1 flex-col px-4 pt-10 xl:px-8">
-              {children}
-            </main>
-          </div>
+          <TooltipProvider>
+            <div className="flex min-h-screen w-full flex-col">
+              <Headers />
+              <main className="flex flex-1 flex-col px-4 pt-10 xl:px-8">
+                {children}
+              </main>
+            </div>
+          </TooltipProvider>
           <Toaster position="bottom-right" />
         </ThemeProvider>
       </body>

@@ -3,17 +3,20 @@ import { useState } from "react";
 import { Button } from "./ui/button";
 import { Loader2Icon, LoaderIcon } from "lucide-react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
+import { LogoutAction } from "@/actions/users";
 
 const LogOutButton = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleLogout = async () => {
     //Sample Code of logOut
     setIsLoading(true);
     try {
-      await new Promise((reslove) => setTimeout(reslove, 2000));
-      const errorMessage = "Something Went Wrong ";
+      const { errorMessage } = await LogoutAction();
       if (!errorMessage) {
+        router.push("/");
         toast.success("LogOut successfully");
       } else {
         toast.error(errorMessage);

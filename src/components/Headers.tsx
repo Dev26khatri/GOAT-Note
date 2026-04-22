@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./ModeToggleButton";
 import LogOutButton from "./LogOutButton";
-
-const Headers = () => {
-  const user = 1;
+import { getUser } from "@/auth/server";
+const Headers = async () => {
+  const user = await getUser();
   return (
     <header
       className="bg-popover relative flex h-24 w-full justify-between items-center px-3 sm:px-8"
