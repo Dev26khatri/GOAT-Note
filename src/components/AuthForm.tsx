@@ -36,13 +36,13 @@ const AuthForm = ({ type }: Props) => {
         errorMessage = (await loginAction(email, password)).errorMessage;
         title = "Logged in";
         description = "You have been successfully logged in";
-        if (!errorMessage) router.prefetch("/");
+        if (!errorMessage) router.prefetch("/login");
         router.push("/");
       } else {
         errorMessage = (await signupAction(email, password)).errorMessage;
         title = "Signup successful";
         description = "Check your email for a confirmation link";
-        if (!errorMessage) router.prefetch("/");
+        if (!errorMessage) router.prefetch("/signup");
         router.push("/");
       }
 
