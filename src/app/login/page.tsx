@@ -5,7 +5,7 @@ import React from "react";
 const LoginPage = () => {
   return (
     <div className="mt-2 flex flex-1 flex-col items-center">
-      <Card className="w-full max-w-md">
+      <Card className="w-full max-w-md ">
         <CardTitle className="mb-4  text-3xl text-center font-semibold tracking-tight ">
           Login
         </CardTitle>

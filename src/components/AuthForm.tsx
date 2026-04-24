@@ -36,20 +36,26 @@ const AuthForm = ({ type }: Props) => {
         errorMessage = (await loginAction(email, password)).errorMessage;
         title = "Logged in";
         description = "You have been successfully logged in";
-        if (!errorMessage) router.prefetch("/login");
-        router.push("/");
+        if (errorMessage) {
+          toast.error(errorMessage);
+          router.prefetch("/login");
+          return;
+        } else {
+          toast.success(title, { description });
+          router.push("/");
+        }
       } else {
         errorMessage = (await signupAction(email, password)).errorMessage;
         title = "Signup successful";
         description = "Check your email for a confirmation link";
-        if (!errorMessage) router.prefetch("/signup");
-        router.push("/");
-      }
-
-      if (!errorMessage) {
-        toast.success(title, { description });
-      } else {
-        toast.error(errorMessage);
+        if (errorMessage) {
+          toast.error(errorMessage);
+          router.prefetch("/signup");
+          return;
+        } else {
+          toast.success(title, { description });
+          router.push("/");
+        }
       }
     });
   };

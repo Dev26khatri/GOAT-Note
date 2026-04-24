@@ -30,7 +30,7 @@ export async function getUser() {
     console.error(userObject.error);
     return null;
   }
-  console.log("Users", userObject.data.user);
+  // console.log("Users", userObject.data.user);
   return userObject.data.user;
 }
 export async function getSession() {

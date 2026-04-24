@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -12,35 +7,19 @@ datasource db {
   provider = "postgresql"
 }
 
-
 model User {
-  id String @id @default(uuid())
-  email String @unique
-  notes Note[]
+  id        String   @id @default(uuid())
+  email     String   @unique
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  notes     Note[]
 }
 
 model Note {
-  id String @id @default(uuid())
-  text String
-  author User @relation(fields: [authorId], references: [id])
-  authorId String
+  id        String   @id @default(uuid())
+  text      String
+  authorId  String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  author    User     @relation(fields: [authorId], references: [id])
 }
-// model Note { 
-//   id String @id @default(uuid())
-//   text String 
-//   author User @relation(fields: [authorId],references: [id]) 
-//   authorId String 
-//   createdAt DateTime @default(now()) 
-//   updatedAt DateTime @updatedAt @default(now()) 
-// } 
-// model User { 
-//   id String @id @default(uuid()) 
-//   email String @unique 
-//   notes Note[] 
-//   createdAt DateTime @default(now()) 
-//   updatedAt DateTime @updatedAt @default(now()) 
-// }
