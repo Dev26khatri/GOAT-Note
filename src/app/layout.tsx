@@ -9,6 +9,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { getUser } from "@/auth/server";
 import { AppSidebar } from "@/components/AppSideBar";
+import NoteProvdier from "@/providers/NoteProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -54,15 +55,17 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <TooltipProvider>
-            <SidebarProvider>
-              <AppSidebar user={user} />
-              <div className="flex min-h-screen w-full flex-col">
-                <Headers user={user} />
-                <main className="flex flex-1 flex-col px-4 pt-10 xl:px-8">
-                  {children}
-                </main>
-              </div>
-            </SidebarProvider>
+            <NoteProvdier>
+              <SidebarProvider>
+                <AppSidebar user={user} />
+                <div className="flex min-h-screen w-full flex-col">
+                  <Headers user={user} />
+                  <main className="flex flex-1 flex-col px-4 pt-10 xl:px-8">
+                    {children}
+                  </main>
+                </div>
+              </SidebarProvider>
+            </NoteProvdier>
           </TooltipProvider>
           <Toaster position="bottom-right" />
         </ThemeProvider>
