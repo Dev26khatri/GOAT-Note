@@ -28,12 +28,12 @@ export async function AppSidebar({ user }: { user: any }) {
     });
   }
   return (
-    <Sidebar className="hidden lg:block">
+    <Sidebar className="block">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>
+          <SidebarGroupLabel className="h-full">
             {user ? (
-              <div className=" flex flex-col mt-5 space-y-3">
+              <div className=" flex flex-col  space-y-3">
                 <h1 className="text-2xl">Your Notes</h1>
                 {user && <SidebarGroupContent notes={notes} />}
               </div>

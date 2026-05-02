@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { ModeToggle } from "./ModeToggleButton";
 import LogOutButton from "./LogOutButton";
 import { getUser } from "@/auth/server";
+import { SidebarTrigger } from "./ui/sidebar";
 const Headers = async ({ user }: { user: any }) => {
   // const user = await getUser();
 
@@ -13,6 +14,12 @@ const Headers = async ({ user }: { user: any }) => {
       className="bg-popover relative flex h-24 w-full justify-between items-center px-3 sm:px-8"
       style={{ boxShadow: shadow }}
     >
+      <div className="absolute">
+        <SidebarTrigger
+          className="relative bottom-5 right-8  "
+          size={"icon-sm"}
+        />
+      </div>
       <Link href={"/"} className="flex items-end gap-3">
         <Image
           src={"/goatius.png"}

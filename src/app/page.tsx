@@ -26,7 +26,7 @@ const HomePage = async ({ searchParams }: Props) => {
         <AskAIButton user={user} />
         <NewNoteButton user={user} />
       </div>
-      <NoteTextInput noteId={NoteId} />
+      <NoteTextInput noteId={NoteId} startingNoteText={note?.text} />
     </div>
   );
 };
