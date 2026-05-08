@@ -40,11 +40,15 @@ const NewNoteButton = ({ user }: Props) => {
   return (
     <Button
       onClick={handleNewNoteButton}
-      variant={"secondary"}
+      variant={"outline"}
       className="w-24"
       disabled={!user || IsLoading}
     >
-      {IsLoading ? <Loader2 className="animate-spin" /> : "New Note"}
+      {IsLoading ? (
+        <Loader2 className="animate-spin" />
+      ) : (
+        <p className="font-bold">New Note</p>
+      )}
     </Button>
   );
 };

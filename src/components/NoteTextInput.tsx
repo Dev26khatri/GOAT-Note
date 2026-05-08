@@ -38,7 +38,7 @@ const NoteTextInput = ({ noteId, startingNoteText }: Props) => {
     <Textarea
       value={noteText}
       onChange={handleUpdateNote}
-      placeholder="Type yout notes here"
+      placeholder="Type your notes here...(Firstly click the New Note button to create a note after you write your note, you can see the changes in real-time without clicking any save button)"
       className="placeholder:text-muted-foreground   h-full max-w-4xl resize-none border-0 bg-transparent p-4 focus:ring-0 sm:text-sm"
     />
   );

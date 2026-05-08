@@ -1,8 +1,12 @@
+import { getUser } from "@/auth/server";
 import AuthForm from "@/components/AuthForm";
 import { Card, CardTitle } from "@/components/ui/card";
+import { redirect } from "next/navigation";
 import React from "react";
 
-const SignupPage = () => {
+const SignupPage = async () => {
+  const user = await getUser();
+  if (user) redirect("/");
   return (
     <div className="mt-2 flex flex-1 flex-col items-center">
       <Card className="w-full max-w-md">

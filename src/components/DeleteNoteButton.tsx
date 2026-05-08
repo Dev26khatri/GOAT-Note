@@ -15,7 +15,7 @@ import {
 import { Loader2, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { useRouter, useSearchParams } from "next/navigation";
-import {   } from "@/actions/notes";
+import { deleteNoteAction } from "@/actions/notes";
 
 type Props = {
   noteId: string;
